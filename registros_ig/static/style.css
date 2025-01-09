@@ -1,6 +1,6 @@
 header,footer{
-    background-color: var(--primary);
-    color: var(--primary-inverse);
+    background-color: rgb(127, 133, 255);
+    color: black;
     font-size: 1.4em;
     font-weight: bold;
 }
