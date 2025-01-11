@@ -15,3 +15,9 @@ body{
 .boton-rojo{
     background-color: rgb(176, 34, 34);
 }
+
+.ul.errors{
+    color: red;
+    font-weight: bold;
+    font-size: 0.8;
+}
