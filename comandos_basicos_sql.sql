@@ -11,4 +11,4 @@
 /* Borramos un registro especifico de la tabla movimientos */
 /* DELETE from movements WHERE id=3; */
 insert into movements (date,concept,quantity) values ('2024-11-10','compra del mercadona',-150);
-SELECT * from movements; 
+SELECT * from movements where id= 5; 

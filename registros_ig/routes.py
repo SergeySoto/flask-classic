@@ -38,4 +38,5 @@ def remove(id):
         resultado = select_by(id)
         return render_template('delete.html',data=resultado)
     else:
-        return 'Registro para eliminar'
+        delete_by(id)
+        return redirect('/')

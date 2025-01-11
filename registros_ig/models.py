@@ -23,7 +23,7 @@ def select_all():
 def insert(registroForm):
     conexion = sqlite3.connect(ORIGIN_DATA)
     cur = conexion.cursor()
-    res = cur.execute('insert into movements (date,concept,quantity) values(?,?,?);',registroForm)
+    cur.execute('insert into movements (date,concept,quantity) values(?,?,?);',registroForm)
 
     conexion.commit()#Funcion para validar registro
 
@@ -34,4 +34,12 @@ def select_by(id):
     cur = conexion.cursor()
     res = cur.execute(f'select * from movements where id={id};')
     result = res.fetchall()
+    conexion.close()
     return result[0]
+
+def delete_by(id):
+    conexion = sqlite3.connect(ORIGIN_DATA)
+    cur = conexion.cursor()
+    cur.execute(f'delete from movements where id={id};')
+    conexion.commit() #funcion para validar borrado
+    conexion.close()

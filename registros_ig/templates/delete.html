@@ -3,9 +3,12 @@
 {% block contenido %}
 {{data}}
 <h1>Esto es una previsualizacion de borrar</h1>
-<article>
-<p><strong> Fecha: </strong></p>
-<p><strong> Concepto: </strong></p>
-<p><strong> Monto: </strong></p>
+<article >
+    <p><strong> Fecha: {{data[1]}} </strong></p>
+    <p><strong> Concepto: {{data[2]}} </strong></p>
+    <p><strong> Monto: {{data[3]}} </strong></p>
 </article>
+<form method="POST" action="/delete/{{data[0]}}">
+    <button type="submit" class="boton-rojo">Eliminar</button>
+</form>
 {% endblock %}
