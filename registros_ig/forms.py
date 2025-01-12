@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import DateField,StringField,FloatField,SubmitField
-from wtforms.validators import DataRequired, length,ValidationError
+from wtforms.validators import DataRequired,length,ValidationError
 from datetime import date
 
 class MovementsForm(FlaskForm):
