@@ -4,7 +4,7 @@ from registros_ig.conexion import Conexion
 
 def select_all():
 
-    conectar = Conexion('select * from movements;')
+    conectar = Conexion('select * from movements order by date desc;')
     filas = conectar.res.fetchall() #datos de columnas (1,2024-01-01,nomina enero, 1500)
     columnas = conectar.res.description #nombres de columnas (id,00000)(date,00000)(concept,00000)
     
@@ -41,3 +41,17 @@ def update_by(id,registro):
     conectUpdate = Conexion(f'update movements set date=?, concept=? , quantity=? WHERE id={id}',registro)
     conectUpdate.con.commit()
     conectUpdate.con.close()
+
+def select_ingreso():
+    conectIngreso = Conexion('select sum(quantity) from movements where quantity >0;')
+    resultadoIngreso = conectIngreso.res.fetchall()
+    conectIngreso.con.close()
+
+    return resultadoIngreso[0][0]
+
+def select_egreso():
+    conectEgreso = Conexion('select sum(quantity) from movements where quantity <0;')
+    resultadoEgreso = conectEgreso.res.fetchall()
+    conectEgreso.con.close()
+
+    return resultadoEgreso[0][0]
