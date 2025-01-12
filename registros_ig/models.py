@@ -36,3 +36,8 @@ def delete_by(id):
     conectarDeleteBy = Conexion(f'delete from movements where id={id};')
     conectarDeleteBy.con.commit() #funcion para validar borrado
     conectarDeleteBy.con.close() 
+
+def update_by(id,registro):
+    conectUpdate = Conexion(f'update movements set date=?, concept=? , quantity=? WHERE id={id}',registro)
+    conectUpdate.con.commit()
+    conectUpdate.con.close()
